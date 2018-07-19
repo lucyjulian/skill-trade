@@ -6,15 +6,14 @@ mongoose.promise = Promise
 // Define userSchema
 const userSchema = new Schema({
 
-	username: { type: String, unique: true, required: false },
+	username: { type: String, unique: false, required: false },
 	password: { type: String, unique: false, required: false },
-	id: { type: String, unique: true, required: true},
-	message: {
-		type: [{type: Schema.Types.ObjectId, ref: "Messages"}]
-	},
-	review: {
-		type: [{type: Schema.Types.ObjectId, ref: "Reviews"}]
-	}
+// 	message: {
+// 		type: [{type: Schema.Types.ObjectId, ref: "Messages"}]
+// 	},
+// 	review: {
+// 		type: [{type: Schema.Types.ObjectId, ref: "Reviews"}]
+// 	}
 })
 
 // Define schema methods

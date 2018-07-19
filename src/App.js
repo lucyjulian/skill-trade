@@ -21,7 +21,6 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       username: null,
-      id: null
     };
 
     this.getUser = this.getUser.bind(this);
@@ -95,7 +94,7 @@ class App extends Component {
             path="/profile"
             render={() => <Profile
             username={this.state.username}
-            id={this.state.id}
+            // id={this.state.id}
           />}
            />
         )}
