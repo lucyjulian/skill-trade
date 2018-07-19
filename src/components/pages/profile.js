@@ -17,7 +17,7 @@ class Profile extends Component {
 					
 				</form>
 				{console.log("/messaging/")}
-				<a> <Link to={`/messaging/${this.props.username + this.props.userInfo}`}>Messaging</Link></a>
+				<a> <Link to={`/messaging/${this.props.username + this.props.id}`}>Messaging</Link></a>
 			</div>
 		);
 	}

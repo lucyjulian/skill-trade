@@ -22,7 +22,6 @@ router.post('/', (req, res) => {
             const newUser = new User({
                 username: username,
                 password: password,
-                id: _id
             })
             newUser.save((err, savedUser) => {
                 if (err) return res.json(err)
@@ -46,7 +45,6 @@ router.post(
             username: req.user.username,
             id: req.user._id
         };
-        this.setState({userInfo:userInfo})
         console.log("userinfo" + userInfo)
         res.send(userInfo);
     }
@@ -65,7 +63,7 @@ router.get('/profile', (req, res, next) => {
     console.log('===== user!!======')
     console.log(req.user)
     if (req.user) {
-        res.json({ user: req.user })
+        res.json({ user: req.user, id: req._id })
     } else {
         res.json({ user: null })
     }
@@ -79,16 +77,15 @@ router.post('/logout', (req, res) => {
         res.send({ msg: 'no user to log out' })
     }
 })
-class UserId extends React.Component {
+// class UserId extends React.Component {
 
-    // return (
-        constructor(props) {
-            super(props);
-            this.state = {
-                userInfo: []
-            };
-        }
+//     // return (
+//         constructor(props) {
+//             super(props);
+//             this.state = {
+//                 userInfo: []
+//             };
+//         }
 
-}
-module.exports= UserId
+// }
 module.exports = router
