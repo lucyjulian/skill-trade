@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Route, Link } from "react-router-dom";
+import { Route} from "react-router-dom";
 // components
 import Signup from "./components/sign-up";
 import LoginForm from "./components/login-form";
-import Navbar from "./components/navbar";
-import Home from "./components/home";
+import Navbar from "./components/Header/navbar";
+import Home from "./components/pages/home";
+import Header from './components/Header/header';
+import Browse from './components/pages/browse';
+import Profile from './components/pages/profile';
+import Ranking from './components/pages/topusers';
+//import Router from ReactRouter.Route;
+//import Switch from ReactRouter.Switch;
+
+
 
 class App extends Component {
   constructor() {
@@ -35,7 +43,7 @@ class App extends Component {
       if (response.data.user) {
         console.log("Get User: There is a user saved in the server session: ");
 
-        this.setState({
+        this.setState({ 
           loggedIn: true,
           username: response.data.user.username
         });
@@ -49,9 +57,10 @@ class App extends Component {
     });
   }
 
-  render() {
+  render() { 
     return (
       <div className="App">
+        <div>
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {/* greet user if logged in: */}
         {this.state.loggedIn && (
@@ -73,6 +82,31 @@ class App extends Component {
           />
            
         )}
+        {!this.state.loggedIn && (
+          <Route 
+            path="/browse"
+            component={Browse}
+          />
+           
+        )}
+        {!this.state.loggedIn && (
+          <Route 
+            path="/profile"
+            component={Profile}
+          />
+           
+        )}
+        {!this.state.loggedIn && (
+          <Route 
+            path="/topusers"
+            component={Ranking}
+          />
+           
+        )}
+        </div>
+        <div className='container'>
+          <Header />
+          </div>
       </div>
     );
   }
