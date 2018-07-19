@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import axios from "axios";
 import { Route} from "react-router-dom";
 // components
@@ -20,7 +20,8 @@ class App extends Component {
     super();
     this.state = {
       loggedIn: false,
-      username: null
+      username: null,
+      id: null
     };
 
     this.getUser = this.getUser.bind(this);
@@ -68,7 +69,7 @@ class App extends Component {
         )}
         {/* Routes to different components */}
         {!this.state.loggedIn && <Route exact path="/" component={Home} />}
-
+        
         {!this.state.loggedIn && (
           <Route
             path="/login"
@@ -82,21 +83,23 @@ class App extends Component {
           />
            
         )}
-        {!this.state.loggedIn && (
+        {this.state.loggedIn && (
           <Route 
             path="/browse"
             component={Browse}
           />
            
         )}
-        {!this.state.loggedIn && (
+        {this.state.loggedIn && (
           <Route 
             path="/profile"
-            component={Profile}
-          />
-           
+            render={() => <Profile
+            username={this.state.username}
+            id={this.state.id}
+          />}
+           />
         )}
-        {!this.state.loggedIn && (
+        {this.state.loggedIn && (
           <Route 
             path="/topusers"
             component={Ranking}

@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import {Link} from 'react-router-dom';
+
 
 class Profile extends Component {
 	render() {
@@ -12,7 +14,10 @@ class Profile extends Component {
 					<input type="text" name="lastname" value="Mouse" />
 
 					<input type="submit" value="Submit" />
+					
 				</form>
+				{console.log("/messaging/")}
+				<a> <Link to={`/messaging/${this.props.username + this.props.userInfo}`}>Messaging</Link></a>
 			</div>
 		);
 	}

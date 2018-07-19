@@ -2,8 +2,10 @@ const express = require('express')
 const router = express.Router()
 const User = require('../database/models/user')
 const passport = require('../passport')
+const userController = require("./../controllers/userController");
 
 router.post('/', (req, res) => {
+    
     console.log('user signup');
 
     const { username, password } = req.body
@@ -19,7 +21,8 @@ router.post('/', (req, res) => {
         else {
             const newUser = new User({
                 username: username,
-                password: password
+                password: password,
+                id: _id
             })
             newUser.save((err, savedUser) => {
                 if (err) return res.json(err)
@@ -40,8 +43,11 @@ router.post(
     (req, res) => {
         console.log('logged in', req.user);
         var userInfo = {
-            username: req.user.username
+            username: req.user.username,
+            id: req.user._id
         };
+        this.setState({userInfo:userInfo})
+        console.log("userinfo" + userInfo)
         res.send(userInfo);
     }
 )
@@ -55,7 +61,16 @@ router.get('/', (req, res, next) => {
         res.json({ user: null })
     }
 })
-
+router.get('/profile', (req, res, next) => {
+    console.log('===== user!!======')
+    console.log(req.user)
+    if (req.user) {
+        res.json({ user: req.user })
+    } else {
+        res.json({ user: null })
+    }
+})
+router.route("/messaging/:id").get(userController.findMessages);
 router.post('/logout', (req, res) => {
     if (req.user) {
         req.logout()
@@ -64,5 +79,16 @@ router.post('/logout', (req, res) => {
         res.send({ msg: 'no user to log out' })
     }
 })
+class UserId extends React.Component {
 
+    // return (
+        constructor(props) {
+            super(props);
+            this.state = {
+                userInfo: []
+            };
+        }
+
+}
+module.exports= UserId
 module.exports = router

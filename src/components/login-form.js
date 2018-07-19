@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
@@ -17,7 +17,7 @@ class LoginForm extends Component {
 
     handleChange(event) {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
         })
     }
 
@@ -28,7 +28,7 @@ class LoginForm extends Component {
         axios
             .post('/user/login', {
                 username: this.state.username,
-                password: this.state.password
+                password: this.state.password,
             })
             .then(response => {
                 console.log('login response: ')
@@ -37,7 +37,7 @@ class LoginForm extends Component {
                     // update App.js state
                     this.props.updateUser({
                         loggedIn: true,
-                        username: response.data.username
+                        username: response.data.username,
                     })
                     // update the state to redirect to home
                     this.setState({
