@@ -42,7 +42,8 @@ router.post(
     (req, res) => {
         console.log('logged in', req.user);
         var userInfo={ username: req.user.username};
-        res.send(userInfo);
+        var userId = {id: req.user.id}
+        res.send(userInfo, userId);
     }
 )
 
@@ -64,7 +65,7 @@ router.get('/profile', (req, res, next) => {
         res.json({ user: null })
     }
 })
-router.route("/messaging/:id").get(userController.findMessages);
+router.route("/messaging/:username").get(userController.findId);
 router.post('/logout', (req, res) => {
     if (req.user) {
         req.logout()

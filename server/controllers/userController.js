@@ -11,5 +11,17 @@ module.exports = {
             res.json(err)
         });
 
+    },
+    findId: function(req, res) {
+        db.User.findOne({ username: req.params.username })
+        .populate("messages")
+        .then(function(dbUser){
+            console.log(dbUser)
+            res.json(dbUser);
+        })
+        .catch(function(err){
+            res.json(err)
+        });
+
     }
 }

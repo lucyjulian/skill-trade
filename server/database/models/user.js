@@ -8,12 +8,12 @@ const userSchema = new Schema({
 
 	username: { type: String, unique: false, required: false },
 	password: { type: String, unique: false, required: false },
-// 	message: {
-// 		type: [{type: Schema.Types.ObjectId, ref: "Messages"}]
-// 	},
-// 	review: {
-// 		type: [{type: Schema.Types.ObjectId, ref: "Reviews"}]
-// 	}
+	message: {
+		type: [{type: Schema.Types.ObjectId, ref: "Messages"}]
+	},
+	review: {
+		type: [{type: Schema.Types.ObjectId, ref: "Reviews"}]
+	}
 })
 
 // Define schema methods
