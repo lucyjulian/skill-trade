@@ -6,7 +6,7 @@ import Signup from './components/sign-up';
 import LoginForm from './components/login-form';
 import Navbar from './components/Navbar';
 import Home from './components/pages/home';
-// import Header from './components/Header';
+import Header from './components/Header';
 import Wrapper from './components/Wrapper';
 import NewEntry from './components/NewEntry';
 import SingleMess from './components/SingleMess';
@@ -106,8 +106,8 @@ class App extends Component {
             />
           )}
         </div>
-        < Wrapper>
-          {/* <Header /> */}
+        <Wrapper>
+          <Header />
           <NewEntry />
           <ProfileForm />
           <SingleMess />
