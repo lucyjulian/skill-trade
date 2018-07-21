@@ -1,5 +1,6 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin:0;
 }
 
 .App {
@@ -10,7 +11,7 @@ body {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
-#navText {
+/* #navText {
   color: rgb(58, 154, 10);
   font-size: 20px;
   margin: 0 auto;
@@ -75,4 +76,4 @@ li {
 .userRanking {
   display: flex;
   justify-content: center;
-}
+} */
