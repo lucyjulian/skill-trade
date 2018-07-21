@@ -98,7 +98,7 @@ class App extends Component {
           )}
           {this.state.loggedIn && (
             <Route
-              path="/messaging/"
+              path="/messaging"
               render={() => <Messaging username={this.state.username} />}
             />
           )}

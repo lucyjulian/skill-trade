@@ -3,6 +3,7 @@ import axios from "axios";
 export default {
   // Gets all books
   getUser: function(username) {
-    return axios.get("/api/users/messaging/" + username);
+      console.log("here API")
+    return axios.get("/user/api/" + username);
   }
 };

@@ -14,7 +14,7 @@ module.exports = {
     },
     getUser: function(req, res) {
         console.log("HERE:CONTROLLERS")
-        db.users.findOne({ username: req.params.username })
+        db.User.findOne({ username: req.params.username })
         // .populate("messages")
         .then(function(dbUser){
             console.log(dbUser)

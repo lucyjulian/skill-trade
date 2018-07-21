@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../../database/models/user')
+const User = require('../../database/models/User')
 const passport = require('../../passport')
 const userController = require("./../../controllers/userController");
 
@@ -69,7 +69,7 @@ router.get('/profile', (req, res, next) => {
         res.json({ user: null })
     }
 })
-router.route("/messaging/:username").get(userController.getUser);
+router.get("/:username", userController.getUser);
 router.post('/logout', (req, res) => {
     if (req.user) {
         req.logout()

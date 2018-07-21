@@ -6,7 +6,7 @@ class Messaging extends Component {
           user: {}
       };
       componentDidMount() {
-          console.log(this.props.username)
+        //   console.log(this.props.username)
           this.getUser(this.props.username)
       };
       getUser = username => {
