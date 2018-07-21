@@ -1,16 +1,17 @@
 
 To-Do List
 ✔ Initialize Passport @done(18-07-18 20:16)
-☐ Skeleton of Website
+✔ Skeleton of Website @done(18-07-20 23:27)
 ☐ Create form and append info to page
 ☐ Save form data to user model (one-to-many)
 ☐ Change views based on authentication
 ☐ Enable chips
 
-Lessons
-☐ Create Form that takes in user input
+Listings
+✔ Create Form that takes in user input @done(18-07-20 23:26)
 ☐ Search parameters to filter lessons
 ☐ Allow user to append lessons to Browse page
+☐ Listings should add to the DB
 ☐ Lessons must save to the user in the database (user => one to many => lessons)
 ☐ Messaging functionality between users to schedule lessons
 ☐ Method for giving chips upon completion
@@ -25,7 +26,7 @@ User Settings
 ☐ Messages
 
 MVP
-☐ User Login
+✔ User Login @done(18-07-20 23:27)
 ☐ Send Messages
 ☐ Receive Messages
 ☐ Add Lessons
