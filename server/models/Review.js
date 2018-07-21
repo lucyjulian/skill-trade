@@ -21,11 +21,11 @@ var ReviewSchema = new Schema({
   },
   author: [{
     type: Schema.Types.ObjectId,
-    ref: "User"
+    ref: "Profile"
   }],
   subject: [{
     type: Schema.Types.ObjectId,
-    ref: "User"
+    ref: "Profile"
   }]
 });
 
