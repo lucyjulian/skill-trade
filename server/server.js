@@ -9,9 +9,9 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 // Route requires
 const user = require('./routes/user');
-const listings = require('./routes/Listing');
-const profiles = require('./routes/Profile');
-const reviews = require('./routes/Review');
+// const listings = require('./routes/Listing');
+// const profiles = require('./routes/Profile');
+// const reviews = require('./routes/Review');
 
 // MIDDLEWARE
 app.use(morgan('dev'));
@@ -40,11 +40,11 @@ app.use(passport.session()); // calls the deserializeUser
 // Routes
 app.use('/user', user);
 
-app.use('/listings', listings);
+// app.use('/listings', listings);
 
-app.use('/profiles', profiles);
+// app.use('/profiles', profiles);
 
-app.use('/reviews', reviews);
+// app.use('/reviews', reviews);
 
 // Starting Server 
 app.listen(PORT, () => {
