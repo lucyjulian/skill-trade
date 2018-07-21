@@ -2,7 +2,7 @@
 
 module.exports = {
     Listing: require("./Listing"),
-    User: require("./User"),
+    Profile: require("./Profile"),
     Review: require("./Review")
   };
   
