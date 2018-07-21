@@ -50,7 +50,7 @@ router.post(
         res.send(userInfo) //.send(userId);
     }
 )
-
+router.post("/user", userController.sendMessage)
 // router.get('/', (req, res, next) => {
 //     console.log('===== user!!======')
 //     console.log(req.user)
