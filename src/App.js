@@ -28,7 +28,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.getUser();
+		// this.getUser();
 	}
 
 	updateUser(userObject) {
@@ -64,14 +64,14 @@ class App extends Component {
 					{/* greet user if logged in: */}
 					{this.state.loggedIn && <p>WELCOME, {this.state.username.toUpperCase()} TO THE HOMEPAGE </p>}
 					{/* Routes to different components */}
-					{!this.state.loggedIn && <Route exact path="/" component={Home} />}
+					{<Route exact path="/" component={Home} />}
 
 					{!this.state.loggedIn && (
 						<Route path="/login" render={() => <LoginForm updateUser={this.updateUser} />} />
 					)}
 					{!this.state.loggedIn && <Route path="/signup" render={() => <Signup signup={this.signup} />} />}
 					{!this.state.loggedIn && <Route path="/browse" component={Browse} />}
-					{!this.state.loggedIn && <Route path="/addlisting" component={addListing} />}
+					{<Route path="/addlisting" component={addListing} />}
 					{!this.state.loggedIn && <Route path="/profile" component={Profile} />}
 					{!this.state.loggedIn && <Route path="/topusers" component={Ranking} />}
 				</div>
