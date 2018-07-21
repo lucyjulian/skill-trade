@@ -45,6 +45,7 @@ class LoginForm extends Component {
                     })
                 }
             }).catch(error => {
+                console.log(this.state)
                 console.log('login error: ')
                 console.log(error);
             })

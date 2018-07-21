@@ -12,9 +12,10 @@ module.exports = {
         });
 
     },
-    findId: function(req, res) {
-        db.User.findOne({ username: req.params.username })
-        .populate("messages")
+    getUser: function(req, res) {
+        console.log("HERE:CONTROLLERS")
+        db.users.findOne({ username: req.params.username })
+        // .populate("messages")
         .then(function(dbUser){
             console.log(dbUser)
             res.json(dbUser);

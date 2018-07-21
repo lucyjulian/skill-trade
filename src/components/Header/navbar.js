@@ -6,6 +6,9 @@ import axios from "axios";
 class Navbar extends Component {
   constructor() {
     super();
+    this.state = {
+      username: "pop"
+    }
     this.logout = this.logout.bind(this);
   }
 
@@ -72,6 +75,9 @@ class Navbar extends Component {
                 </Link>
                 <Link to="/profile" className="btn btn-link">
                   <span id="navText" className="text-secondary">Profile</span>
+                </Link>
+                <Link to="/messaging/" className="btn btn-link">
+                  <span id="navText" className="text-secondary">Messaging</span>
                 </Link>
               </section>
         </header>
