@@ -24,5 +24,10 @@ module.exports = {
             res.json(err)
         });
 
+    },
+    sendMessage: function(req, res) {
+        console.log("HERE:CONTROLLERS")
+        db.User.findOneAndUpdate({username: req.receiver}, {$push: {message: req.body}})
+
     }
 }

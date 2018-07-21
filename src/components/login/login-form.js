@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
@@ -45,6 +45,7 @@ class LoginForm extends Component {
                     })
                 }
             }).catch(error => {
+                console.log(this.state)
                 console.log('login error: ')
                 console.log(error);
             })
