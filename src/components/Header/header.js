@@ -1,8 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-//import PropTypes from 'prop-types';
-import '../../App.css';
-=======
 import PropTypes from 'prop-types';
 // import "../../App.css";
 import "../css/bootstrap.css"
@@ -25,9 +21,6 @@ import "../css/bootstrap.css"
 // 		</ul>
 // 	);
 // }
-
-
->>>>>>> master
 
 class Header extends React.Component {
 	constructor(props) {
@@ -68,5 +61,6 @@ class Header extends React.Component {
 		);
 	}
 }
+
 
 export default Header;

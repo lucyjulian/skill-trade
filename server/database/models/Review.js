@@ -19,14 +19,14 @@ var ReviewSchema = new Schema({
     type: String,
     required: true
   },
-  author: [{
+  author: {
     type: Schema.Types.ObjectId,
     ref: "Profile"
-  }],
-  subject: [{
+  },
+  subject: {
     type: Schema.Types.ObjectId,
     ref: "Profile"
-  }]
+  }
 });
 
 // This creates our model from the above schema, using mongoose's model method
