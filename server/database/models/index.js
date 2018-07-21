@@ -3,6 +3,7 @@
 module.exports = {
     Listing: require("./Listing"),
     Profile: require("./Profile"),
-    Review: require("./Review")
+    Review: require("./Review"),
+    User: require("./user")
   };
   
