@@ -10,7 +10,6 @@ body {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
-
 #navText {
   color: rgb(58, 154, 10);
   font-size: 20px;
@@ -23,12 +22,10 @@ body {
   padding: 20px;
   color: white;
 }
-
 p {
   color: rgb(145, 18, 9);
   font-size: 50px;
 }
-
 .App-title {
   font-size: 1.5em;
 }
@@ -41,6 +38,8 @@ p {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
 
 .container {
   max-width: 1200px;
@@ -92,4 +91,3 @@ li {
   display: flex;
   justify-content: center;
 }
-
