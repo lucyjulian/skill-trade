@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var MessageSchema = new Schema({
-    title: {
+    receiver: {
         type: String,
         required: true
     },
