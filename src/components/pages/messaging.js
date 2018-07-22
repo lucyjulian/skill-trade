@@ -1,0 +1,95 @@
+import React, { Component } from "react";
+import API from "./../utils/API";
+import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+
+class Messaging extends Component {
+  state = {
+    messages: [],
+    receiver: "",
+    body: ""
+  };
+  componentDidMount() {
+    //   console.log(this.props.username)
+    this.getUser(this.props.username);
+  }
+  getUser = username => {
+    API.getUser(username).then(res => {
+      console.log(res);
+      this.setState({
+        messages: res.data.message
+      });
+      console.log(this.state);
+    });
+  };
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.receiver && this.state.body) {
+      API.sendMessage({
+        receiver: this.state.receiver,
+        body: this.state.body,
+      })
+        // .then(res => this.loadBooks())
+        .catch(err => console.log(err));
+    }
+  };
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+  //   // When this component mounts, grab the book with the _id of this.props.match.params.id
+  //   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+  //   componentDidMount() {
+  //     API.getBook(this.props.match.params.id)
+  //       .then(res => this.setState({ book: res.data }))
+  //       .catch(err => console.log(err));
+  // //   }
+  // componentDidMount() {
+  //     API.getUser()
+  // }
+
+  render() {
+    return (
+      <div>
+        <div>
+          <h1>Send Message</h1>
+          <Form>
+            <FormGroup>
+              <Label for="exampleEmail">To (username):</Label>
+              <Input
+                type="textarea"
+                name="reveiver"
+                id="exampleEmail"
+                onChange={this.handleInputChange}
+                value={this.state.receiver}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="exampleText">Message</Label>
+              <Input
+                type="textarea"
+                name="body"
+                id="exampleText"
+                onChange={this.handleInputChange}
+                value={this.state.body}
+              />
+            </FormGroup>
+            <Button
+                disabled={!(this.state.receiver && this.state.body)}
+                onClick={this.handleFormSubmit}
+              >
+                Send Message
+              </Button>
+          </Form>
+        </div>
+        <div>
+          <h1>Inbox</h1>
+          {/* <p>{this.state.user}</p> */}
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Messaging;
