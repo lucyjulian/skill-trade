@@ -50,7 +50,7 @@ router.post(
         res.send(userInfo) //.send(userId);
     }
 )
-
+router.post("/user", userController.sendMessage)
 // router.get('/', (req, res, next) => {
 //     console.log('===== user!!======')
 //     console.log(req.user)
@@ -89,26 +89,4 @@ router.post('/logout', (req, res) => {
 //         }
 
 // }
-
-
-
-//////////////////////////////////////////////////////////////////////////
-//listing
-
-
-// Matches with "/api/books"
-router.route("/")
-  .get(listingController.findAll)
-  .post(listingController.create);
-
-// Matches with "/api/books/:id" 
-router
-  .route("/:id")
-  .get(listingController.findById)
-  .put(listingController.update)
-  .delete(listingController.remove);
-
 module.exports = router
-
-
-

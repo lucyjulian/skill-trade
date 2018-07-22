@@ -14,6 +14,7 @@ import ProfileForm from './components/ProfileForm';
 import Browse from './components/pages/browse';
 import Profile from './components/pages/profile';
 import Ranking from './components/pages/topusers';
+import Messaging from "./components/pages/messaging"
 
 
 //import Router from ReactRouter.Route;
@@ -94,7 +95,6 @@ class App extends Component {
           {this.state.loggedIn && (
             <p>WELCOME, {this.state.username.toUpperCase()} TO THE HOMEPAGE </p>
           )}
-          
           {/* Routes to different components */}
           {!this.state.loggedIn && <Route exact path="/" component={Home} />}
 
@@ -110,30 +110,34 @@ class App extends Component {
               render={() => <Signup signup={this.signup} />}
             />
           )}
-          {!this.state.loggedIn && (
-            <Route 
-              path="/browse"
-              component={Browse}
-            />
-          )}
-          {!this.state.loggedIn && (
-            <Route 
+          {this.state.loggedIn && <Route path="/browse" component={Browse} />}
+          {this.state.loggedIn && (
+            <Route
               path="/profile"
-              component={Profile}
+
+              render={() => (
+                <Profile
+                  username={this.state.username}
+                  // id={this.state.id}
+                />
+              )}
             />
           )}
-          {!this.state.loggedIn && (
-            <Route 
-              path="/topusers"
-              component={Ranking}
+          {this.state.loggedIn && (
+            <Route path="/topusers" component={Ranking} />
+          )}
+          {this.state.loggedIn && (
+            <Route
+              path="/messaging"
+              render={() => <Messaging username={this.state.username} />}
             />
           )}
         </div>
         <Wrapper>
-          <Header />
-          <NewEntry />
-          <ProfileForm />
-          <SingleMess />
+        <Header />
+        <NewEntry />
+        <ProfileForm />
+        <SingleMess />
         </Wrapper>
       </div>
     );
