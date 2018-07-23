@@ -7,13 +7,49 @@ mongoose.promise = Promise
 const userSchema = new Schema({
 	username: { type: String, unique: false, required: false },
 	password: { type: String, unique: false, required: false },
-	message: {
+
+	firstName: {
+		type: String,
+		required: false
+	},
+	  // `link` is required and of type String
+	lastName: {
+		type: String,
+		required: false
+	},
+	email: {
+		type: String,
+		required: false
+	},
+	imageLink: {
+		type: String,
+		required: false
+	},
+	birthdate: {
+		type: Date,
+		required: false
+	},
+	dateJoined: {
+		type: Date,
+		required: false
+	},
+	karmaChips: {
+		type: Number,
+		required: false
+	},
+	listings: [{
+		type: Schema.Types.ObjectId,
+		ref: "Listing"
+	}],
+  message: {
 		type: [{type: Schema.Types.ObjectId, ref: "Messages"}]
 	},
-	review: {
-		type: [{type: Schema.Types.ObjectId, ref: "Reviews"}]
-	}
-})
+	reviews: [{
+		type: Schema.Types.ObjectId,
+		ref: "Review"
+	}]
+
+});
 
 // Define schema methods
 userSchema.methods = {
@@ -23,7 +59,7 @@ userSchema.methods = {
 	hashPassword: plainTextPassword => {
 		return bcrypt.hashSync(plainTextPassword, 10)
 	}
-}
+};
 
 // Define pre hooks for the save method
 userSchema.pre('save', function (next) {
@@ -36,7 +72,7 @@ userSchema.pre('save', function (next) {
 		this.password = this.hashPassword(this.password)
 		next()
 	}
-})
+});
 
 const User = mongoose.model('User', userSchema)
 module.exports = User
