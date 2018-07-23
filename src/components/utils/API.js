@@ -8,6 +8,6 @@ export default {
   },
   sendMessage: function(receiverData) {
       console.log("message API")
-      return axios.post("/user", receiverData)
+      return axios.post("/user/send", receiverData)
   }
 };
