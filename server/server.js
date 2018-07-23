@@ -1,18 +1,18 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const session = require('express-session');
-const dbConnection = require('./database') ;
-const MongoStore = require('connect-mongo')(session);
+const express = require('express')
+const bodyParser = require('body-parser')
+const morgan = require('morgan')
+const session = require('express-session')
+const mongoose = require('mongoose')
+const routes = require("./routes")
+const dbConnection = require('./database') 
+const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport');
-const app = express();
-const PORT = process.env.PORT || 8080;
+const app = express()
+const PORT = 8080;
 // Route requires
+
 const routes = require("./routes");
-// const user = require('./routes/user');
-// const listings = require('./routes/Listing');
-// const profiles = require('./routes/Profile');
-// const reviews = require('./routes/Review');
+
 
 // MIDDLEWARE
 app.use(morgan('dev'));
