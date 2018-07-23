@@ -8,7 +8,8 @@ const passport = require('./passport');
 const app = express();
 const PORT = process.env.PORT || 8080;
 // Route requires
-const user = require('./routes/user');
+const routes = require("./routes");
+// const user = require('./routes/user');
 // const listings = require('./routes/Listing');
 // const profiles = require('./routes/Profile');
 // const reviews = require('./routes/Review');
@@ -38,13 +39,9 @@ app.use(passport.session()); // calls the deserializeUser
 
 
 // Routes
-app.use('/user', user);
 
-app.use('/listings', listings);
+app.use(routes);
 
-app.use('/profiles', profiles);
-
-// app.use('/reviews', reviews);
 
 // Starting Server 
 app.listen(PORT, () => {

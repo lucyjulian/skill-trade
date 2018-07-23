@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
 
     getListingByTag: function (req, res) {
-        Listing.find({'hashtags': req.params.tag}, null, { sort: { '_id': -1 } }, function (error, data) {
+        db.Listing.find({'hashtags': req.params.tag}, null, { sort: { '_id': -1 } }, function (error, data) {
         if (error) throw error;
         res.send(data);
         });
@@ -15,7 +15,7 @@ module.exports = {
         db.Listing.create(req)
         .then(function(dbListing) {
             console.log(dbListing);
-        db.Profile.findOneAndUpdate({ _id: req.params.userID }, { $push: { listings: dbListing[1]._id }}, { new: true });
+        db.Profile.findOneAndUpdate({ _id: req.params.userID }, { $push: { listings: dbListing._id }}, { new: true });
         });
     },
 
