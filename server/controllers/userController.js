@@ -26,8 +26,21 @@ module.exports = {
 
     },
     sendMessage: function(req, res) {
-        console.log("HERE:CONTROLLERS")
-        db.User.findOneAndUpdate({username: req.receiver}, {$push: {message: req.body}})
-
+        console.log("!!!!HERE:CONTROLLERS" + req.body.receiver)
+        db.Message.create(req.body)
+        .then(function(dbMessage){
+            console.log(dbMessage);
+            return db.User.findOneAndUpdate({username: dbMessage.receiver},{ $push: {message: dbMessage._id}}, {new: true});
+        })
+        .catch(function(err){
+            res.json(err)
+        });
     }
+    // collection.findOneAndUpdate(
+    //     {_id: req.query.id},
+    //     {$push: {items: item}},
+    //     {safe: true, upsert: true},
+    //     function(err, model) {
+    //         console.log(err);
+    //     }
 }
