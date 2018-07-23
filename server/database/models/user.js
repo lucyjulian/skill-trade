@@ -41,7 +41,7 @@ const userSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: "Listing"
 	}],
-  message: {
+  	message: {
 		type: [{type: Schema.Types.ObjectId, ref: "Messages"}]
 	},
 	reviews: [{
