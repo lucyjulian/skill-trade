@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 // components
 import Signup from './components/login/sign-up';
 import LoginForm from './components/login/login-form';
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar';
 import Home from './components/pages/home';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
