@@ -40,8 +40,7 @@ module.exports = {
         console.log("HERE MESSAGE BODY CONTROLLER" + req.params.id)
         return db.Message.findOne({ _id: req.params.id} )
         .then(function(dbMessage) {
-            console.log(dbMessage);
-            
+            console.log(dbMessage + "??????");
         })
         .catch(function(err){
             res.json(err)
