@@ -15,7 +15,7 @@ module.exports = {
     getUser: function(req, res) {
         console.log("HERE:CONTROLLERS")
         db.User.findOne({ username: req.params.username })
-        // .populate("messages")
+        .populate("messages")
         .then(function(dbUser){
             console.log(dbUser)
             res.json(dbUser);
@@ -35,6 +35,17 @@ module.exports = {
         .catch(function(err){
             res.json(err)
         });
+    },
+    getMessageBody: function(req, res) {
+        console.log("HERE MESSAGE BODY CONTROLLER" + req.params.id)
+        return db.Message.findOne({ _id: req.params.id} )
+        .then(function(dbMessage) {
+            console.log(dbMessage);
+            
+        })
+        .catch(function(err){
+            res.json(err)
+        });
     }
     // collection.findOneAndUpdate(
     //     {_id: req.query.id},
@@ -43,4 +54,6 @@ module.exports = {
     //     function(err, model) {
     //         console.log(err);
     //     }
+
 }
+
