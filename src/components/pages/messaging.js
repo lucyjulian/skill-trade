@@ -6,6 +6,7 @@ import { MessageListItem, MessageList } from "./../Message";
 class Messaging extends Component {
   state = {
     messages: [],
+    messageBody: [],
     receiver: "",
     body: ""
   };
@@ -19,14 +20,21 @@ class Messaging extends Component {
       this.setState({
         messages: res.data.message
       });
-      console.log(this.state);
+      console.log(this.state.messages);
+      this.getMessageBody(this.state.messages[0])
     });
   };
-  // sendMessage = receiver => {
-  //   API.sendMessage(receiver).then(res => {
-  //     console.log(res);
-  //   })
-  // }
+  getMessageBody = id => {
+    console.log(id)
+    API.getMessageBody(id).then(res => {
+      console.log(res);
+      this.setState(prevState => ({
+        messageBody: [...prevState.messageBody, res]
+      }))
+      console.log(this.state)
+    })
+  }
+  
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.receiver && this.state.body) {
@@ -81,13 +89,19 @@ class Messaging extends Component {
                 value={this.state.receiver}
               />
             </FormGroup>
+                        <Button
+                disabled={!(this.state.receiver && this.state.body)}
+                onClick={this.handleFormSubmit}
+              >
+                Send Message
+              </Button>
             <MessageList>
               {this.state.messages.map(message => {
                 return (
                   <MessageListItem id="center" key={message._id}>
                     <strong>
                       <h1>{`Message ID: ${message}`}</h1>
-                      {/* <a href={article.web_url}>{article.web_url}</a> */}
+                      {/* <Button onClick={this.getMessageBody(message)}/> */}
                       {/* <h3>{new Date(article.pub_date).toLocaleDateString('en-US', options)}</h3> */}
                     </strong>
                   </MessageListItem>
@@ -116,12 +130,7 @@ class Messaging extends Component {
               />
             </FormGroup> */}
 
-            <Button
-                disabled={!(this.state.receiver && this.state.body)}
-                onClick={this.handleFormSubmit}
-              >
-                Send Message
-              </Button>
+
           </Form>
         </div>
         <div>
