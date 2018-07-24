@@ -4,7 +4,7 @@ module.exports = {
 // Route for grabbing a specific profile by id, populate it with it's listings and reviews
     getUserProfile: function(req, res) {
         // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
-        db.Profile.findOne({ _id: req.params.id })
+        db.User.findOne({ _id: req.params.id })
         // ..and populate all of the notes associated with it
         .populate("listings")
         .populate("reviews")
@@ -22,7 +22,7 @@ module.exports = {
     addChips: function(req, res) {
         
         // Create a new note and pass the req.body to the entry
-        db.Profile.findOneAndUpdate({_id: req.params.id}, {$set: { karmaChips: req.params.chips }})
+        db.User.findOneAndUpdate({_id: req.params.id}, {$set: { karmaChips: req.params.chips }})
         .then(function(dbProfile) {
             console.log(dbProfile);
             res.send(dbProfile);
