@@ -22,8 +22,6 @@ import "../css/bootstrap.css"
 // 	);
 // }
 
-
-
 class Header extends React.Component {
 	constructor(props) {
 		super(props);
@@ -64,9 +62,5 @@ class Header extends React.Component {
 	}
 }
 
-// SelectPage.propTypes = {
-// 	selectedPage: PropTypes.string.isRequired,
-// 	onSelect: PropTypes.func.isRequired
-// };
 
 export default Header;
