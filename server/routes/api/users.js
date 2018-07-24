@@ -49,9 +49,11 @@ router.post(
                 // var userId = {id: req.user.id}
         res.send(userInfo); //.send(userId);
     }
+
 );
 
-router.post("/user", userController.sendMessage);
+router.post("/send", userController.sendMessage);
+
 // router.get('/', (req, res, next) => {
 //     console.log('===== user!!======')
 //     console.log(req.user)
@@ -81,7 +83,9 @@ router.post('/logout', (req, res) => {
     } else {
         res.send({ msg: 'no user to log out' })
     }
+
 });
+
 
 // class UserId extends React.Component {
 
@@ -94,4 +98,5 @@ router.post('/logout', (req, res) => {
 //         }
 
 // }
+
 module.exports = router;
