@@ -6,6 +6,7 @@ import { MessageListItem, MessageList } from "./../Message";
 class Messaging extends Component {
   state = {
     messages: [],
+    messageBody: [],
     receiver: "",
     body: ""
   };
@@ -19,9 +20,21 @@ class Messaging extends Component {
       this.setState({
         messages: res.data.message
       });
-      console.log(this.state);
+      console.log(this.state.messages);
+      this.getMessageBody(this.state.messages[0])
     });
   };
+  getMessageBody = id => {
+    console.log(id)
+    API.getMessageBody(id).then(res => {
+      console.log(res);
+      this.setState(prevState => ({
+        messageBody: [...prevState.messageBody, res]
+      }))
+      console.log(this.state)
+    })
+  }
+  
   // sendMessage = receiver => {
   //   API.sendMessage(receiver).then(res => {
   //     console.log(res);
@@ -99,6 +112,53 @@ class Messaging extends Component {
               <Label for="exampleEmail">To (username):</Label>
               <Input
                 type="textarea"
+                name="body"
+                id="exampleText"
+                onChange={this.handleInputChange}
+                value={this.state.body}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="exampleEmail">User</Label>
+              <Input
+                type="textarea"
+                name="receiver"
+              <Label for="exampleEmail">To (username):</Label>
+              <Input
+                type="textarea"
+                name="reveiver"
+                id="exampleEmail"
+                onChange={this.handleInputChange}
+                value={this.state.receiver}
+              />
+            </FormGroup>
+                        <Button
+            </FormGroup> */}
+
+            <Button
+                disabled={!(this.state.receiver && this.state.body)}
+                onClick={this.handleFormSubmit}
+              >
+                Send Message
+              </Button>
+            <MessageList>
+              {this.state.messages.map(message => {
+                return (
+                  <MessageListItem id="center" key={message._id}>
+                    <strong>
+                      <h1>{`Message ID: ${message}`}</h1>
+                      {/* <Button onClick={this.getMessageBody(message)}/> */}
+                      {/* <h3>{new Date(article.pub_date).toLocaleDateString('en-US', options)}</h3> */}
+                    </strong>
+                  </MessageListItem>
+                  
+                );
+              })}
+            </MessageList>
+            {/* <FormGroup>
+              <Label for="exampleEmail">To (username):</Label>
+              <Input
+                type="textarea"
                 name="reveiver"
                 id="exampleEmail"
                 onChange={this.handleInputChange}
@@ -116,12 +176,7 @@ class Messaging extends Component {
               />
             </FormGroup> */}
 
-            <Button
-                disabled={!(this.state.receiver && this.state.body)}
-                onClick={this.handleFormSubmit}
-              >
-                Send Message
-              </Button>
+
           </Form>
         </div>
         <div>
