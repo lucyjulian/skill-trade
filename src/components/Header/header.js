@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import "../../App.css";
+// import "../../App.css";
+import "../css/bootstrap.css"
 
 // function SelectPage(props) {
 // 	var pages = [ 'All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python' ];
@@ -20,8 +21,6 @@ import "../../App.css";
 // 		</ul>
 // 	);
 // }
-
-
 
 class Header extends React.Component {
 	constructor(props) {
@@ -63,9 +62,5 @@ class Header extends React.Component {
 	}
 }
 
-// SelectPage.propTypes = {
-// 	selectedPage: PropTypes.string.isRequired,
-// 	onSelect: PropTypes.func.isRequired
-// };
 
 export default Header;
