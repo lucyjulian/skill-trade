@@ -6,12 +6,12 @@ class Browse extends Component {
 
   render() {
     return (
-      <div>  
+      <section>  
       <div class = "container text-center mx-auto">
         <p>Browse Lessons</p>
         <Header />
       </div>
-      </div>
+      </section>
     );
   }
 
