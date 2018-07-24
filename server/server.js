@@ -1,16 +1,17 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const morgan = require('morgan')
-const session = require('express-session')
-const mongoose = require('mongoose')
-const routes = require("./routes")
-const dbConnection = require('./database') 
+const express = require('express');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const session = require('express-session');
+const mongoose = require('mongoose');
+const routes = require("./routes");
+const dbConnection = require('./database'); 
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport');
 const app = express()
 const PORT = 8080;
 // Route requires
 const user = require('./routes/api/users')
+// const routes = ("./routes")
 
 // MIDDLEWARE
 app.use(morgan('dev'));
@@ -38,17 +39,10 @@ app.use(passport.session()); // calls the deserializeUser
 
 // Routes
 app.use('/user', user)
-//app.use(routes);
+// app.unsubsscribe(routes)
 
+app.use(routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
-
-
-// app.use('/listings', listings);
-
-// app.use('/profiles', profiles);
-
-// app.use('/reviews', reviews);
 
 // Starting Server 
 app.listen(PORT, () => {
