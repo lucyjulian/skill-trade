@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 // components
@@ -95,6 +96,7 @@ class App extends Component {
 			</div>
 		);
 	}
+
 }
 
 export default App;
