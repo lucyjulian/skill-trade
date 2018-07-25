@@ -7,7 +7,7 @@ import Signup from './components/sign-up';
 import LoginForm from './components/login-form';
 import Navbar from './components/Header/navbar';
 import Home from './components/pages/home';
-import Header from './components/Header/header';
+
 import Browse from './components/pages/browse';
 import Profile from './components/pages/profile';
 import Ranking from './components/pages/topusers';
@@ -91,7 +91,7 @@ class App extends Component {
 					)}
 				</div>
 				<div className="container">
-					<Header />
+					
 				</div>
 			</div>
 		);

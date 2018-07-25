@@ -6,7 +6,7 @@ import "../../App.css";
 
 
 
-class Header extends React.Component {
+class PageSelect extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -48,4 +48,4 @@ class Header extends React.Component {
 
 
 
-export default Header;
+export default PageSelect;

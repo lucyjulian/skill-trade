@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PageSelect from '../Header/PageSelect';
 
 class Browse extends Component {
 
@@ -7,8 +8,9 @@ class Browse extends Component {
       <div>
           
         <p>Browse Lessons</p>
+        <PageSelect />
       </div>
-    );
+    ); 
   }
 
 }

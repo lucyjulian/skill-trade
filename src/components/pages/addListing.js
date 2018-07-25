@@ -92,7 +92,7 @@ class Listing extends Component {
 						}  */
 						onClick={this.handleFormSubmit}
 					>
-						Submit Book
+						Submit Listing
 					</FormBtn>
 				</form>
 			</div>
