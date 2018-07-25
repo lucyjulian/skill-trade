@@ -1,7 +1,26 @@
 const db = require("../models");
 
 module.exports = {
-// Route for grabbing a specific profile by id, populate it with it's listings and reviews
+
+    updateProfile: function(req, res) {
+        db.User.findOneAndUpdate({_id: req._id},
+            {$set: {
+                firstName: req.firstName,
+                lastName: req.lastName,
+                email: req.email,
+                imageLink: req.imageLink,
+                birthdate: req.birthdate
+                }
+            }
+        ).then(function(userProfile) {
+            res.json(userProfile);
+        })
+        .catch(function(err) {
+            res.json(err);
+        });
+    },
+
+    // Route for grabbing a specific profile by id, populate it with it's listings and reviews
     getUserProfile: function(req, res) {
         // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
         db.User.findOne({ _id: req.params.id })

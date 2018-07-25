@@ -2,6 +2,19 @@ const db = require("../models");
 
 module.exports = {
 
+    findAll: function(req, res) {
+        db.Listing.find({ sort: { '_id': -1 } })
+        .then(data => res.json(data))
+        .catch(err => res.status(404).json(err));
+    },
+
+    create: function(req, res) {
+        db.Listing
+        .create(req.body)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    },
+
     getListingByTag: function (req, res) {
         db.Listing.find({'hashtags': req.params.tag}, null, { sort: { '_id': -1 } }, function (error, data) {
         if (error) throw error;
@@ -15,7 +28,7 @@ module.exports = {
         db.Listing.create(req)
         .then(function(dbListing) {
             console.log(dbListing);
-        db.Profile.findOneAndUpdate({ _id: req.params.userID }, { $push: { listings: dbListing._id }}, { new: true });
+        db.User.findOneAndUpdate({ _id: req.userID }, { $push: { listings: dbListing._id }}, { new: true });
         });
     },
 

@@ -11,6 +11,10 @@ var ListingSchema = new Schema({
     type: String,
     required: true
   },
+  location: {
+    type: String,
+    required: true
+  },
   description: {
     type: String,
     required: true
@@ -26,6 +30,10 @@ var ListingSchema = new Schema({
   hashtags: {
     type: Array,
     required: true
+  },
+  userID: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
   }
 });
 
