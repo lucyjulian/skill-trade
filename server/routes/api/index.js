@@ -3,7 +3,7 @@ const userRoutes = require("./users");
 const listingRoutes = require("./Listing");
 const profileRoutes = require("./Profile");
 const reviewRoutes = require("./Review");
-const userRoutes = require("./user");
+// const userRoutes = require("./user");
 const messageRoutes = require("./message")
 // Book routes
 router.use("/users", userRoutes);

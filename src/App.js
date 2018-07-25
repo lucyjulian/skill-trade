@@ -23,7 +23,23 @@ import Messaging from "./components/pages/messaging"
 
 
 
+<<<<<<< HEAD
+import axios from 'axios';
+import { Route } from 'react-router-dom';
+// components
+import Signup from './components/sign-up';
+import LoginForm from './components/login-form';
+import Navbar from './components/Header/navbar';
+import Home from './components/pages/home';
 
+import Browse from './components/pages/browse';
+import Profile from './components/pages/profile';
+import Ranking from './components/pages/topusers';
+import Messaging from './components/pages/messaging';
+import addListing from './components/pages/addListing';
+=======
+
+>>>>>>> skeleton
 //import Router from ReactRouter.Route;
 //import Switch from ReactRouter.Switch;
 
@@ -106,22 +122,34 @@ class App extends Component {
           {/* Routes to different components */}
           {!this.state.loggedIn && <Route exact path="/" component={Home} />}
 
-          {!this.state.loggedIn && (
-            <Route
-              path="/login"
-              render={() => <LoginForm updateUser={this.updateUser} />}
-            />
-          )}
-          {!this.state.loggedIn && (
-            <Route
-              path="/signup"
-              render={() => <Signup signup={this.signup} />}
-            />
-          )}
-          {this.state.loggedIn && <Route path="/browse" component={Browse} />}
-          {this.state.loggedIn && (
-            <Route
-              path="/profile"
+					{!this.state.loggedIn && (
+						<Route path="/login" render={() => <LoginForm updateUser={this.updateUser} />} />
+					)}
+					{!this.state.loggedIn && <Route path="/signup" render={() => <Signup signup={this.signup} />} />}
+					{this.state.loggedIn && <Route path="/browse" component={Browse} />}
+					{this.state.loggedIn && (
+						<Route
+							path="/profile"
+							render={() => (
+								<Profile
+									username={this.state.username}
+									// id={this.state.id}
+								/>
+							)}
+						/>
+					)}
+					{this.state.loggedIn && <Route path="/topusers" component={Ranking} />}
+          {this.state.loggedIn && <Route path="/addListing" component={addListing} />}
+					{this.state.loggedIn && (
+						<Route path="/messaging" render={() => <Messaging username={this.state.username} />} />
+					)}
+				</div>
+				<div className="container">
+					
+				</div>
+			</div>
+		);
+	}
 
               render={() => (
                 <Profile
