@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Header from '../Header/header';
-
+import PageSelect from '../Header/PageSelect';
 
 class Browse extends Component {
 
@@ -9,7 +8,7 @@ class Browse extends Component {
       <section>  
       <div class = "container text-center mx-auto">
         <p>Browse Lessons</p>
-        <Header />
+        <PageSelect />
       </div>
       </section>
     );
