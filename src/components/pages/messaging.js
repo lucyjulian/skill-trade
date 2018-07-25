@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "./../utils/API";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input  } from "reactstrap";
 import { MessageListItem, MessageList } from "./../Message";
 import { Container, Row, Col } from 'reactstrap';
 import Wrapper from "../Wrapper";
