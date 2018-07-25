@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import "../../App.css";
 
+
 // function SelectPage(props) {
 // 	var pages = [ 'All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python' ];
 // 	return (
