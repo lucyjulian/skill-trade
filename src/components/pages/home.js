@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from 'reactstrap';
-import Header from "../Header";
+import PageSelect from "../PageSelect";
 import Wrapper from '../Wrapper'
 
 class Home extends Component {
@@ -11,7 +11,7 @@ class Home extends Component {
       <section>
         <Wrapper>
           <Container>
-            <Header/>
+            <PageSelect/>
               <h1>
                 HOME PAGE (not logged in)
               </h1>

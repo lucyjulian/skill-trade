@@ -11,7 +11,7 @@ import Navbar from './components/Navbar';
 // import LoginForm from './components/login-form';
 // import Navbar from './components/Navbar';
 import Home from './components/pages/home';
-import Header from './components/Header';
+import PageSelect from './components/PageSelect';
 // import Wrapper from './components/Wrapper';
 import NewEntry from './components/NewEntry';
 import SingleMess from './components/SingleMess';
@@ -19,22 +19,7 @@ import ProfileForm from './components/ProfileForm';
 import Browse from './components/pages/browse';
 import Profile from './components/pages/profilepage';
 import Ranking from './components/pages/topusers';
-import Messaging from "./components/pages/messaging"
-
-
-
-import axios from 'axios';
-import { Route } from 'react-router-dom';
-// components
-import Signup from './components/sign-up';
-import LoginForm from './components/login-form';
-import Navbar from './components/Header/navbar';
-import Home from './components/pages/home';
-
-import Browse from './components/pages/browse';
-import Profile from './components/pages/profile';
-import Ranking from './components/pages/topusers';
-import Messaging from './components/pages/messaging';
+import Messaging from "./components/pages/messaging";
 import addListing from './components/pages/addListing';
 //import Router from ReactRouter.Route;
 //import Switch from ReactRouter.Switch;
@@ -155,7 +140,7 @@ class App extends Component {
         </div>
 				<div>
         {/* <Wrapper> */}
-        <Header />
+        <PageSelect />
         <NewEntry />
         <ProfileForm />
         <SingleMess />

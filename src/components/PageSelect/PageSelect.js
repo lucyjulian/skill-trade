@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import "../../App.css";
-<<<<<<< HEAD:src/components/PageSelect/PageSelect.js
 //import PropTypes from 'prop-types';
 import "../../App.css";
-=======
-
->>>>>>> skeleton:src/components/Header/header.js
 
 
 
