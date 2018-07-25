@@ -79,8 +79,12 @@ class Navbar extends Component {
                 <Link to="/messaging/" className="btn btn-link">
                   <span id="navText" className="text-secondary">Messaging</span>
                 </Link>
+                <Link to="/addListing/" className="btn btn-link">
+                  <span id="navText" className="text-secondary">addListing</span>
+                </Link>
               </section>
         </header>
+        
       </div>
     );
   }
