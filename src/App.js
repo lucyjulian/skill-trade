@@ -23,7 +23,6 @@ import Messaging from "./components/pages/messaging"
 
 
 
-<<<<<<< HEAD
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 // components
@@ -37,9 +36,6 @@ import Profile from './components/pages/profile';
 import Ranking from './components/pages/topusers';
 import Messaging from './components/pages/messaging';
 import addListing from './components/pages/addListing';
-=======
-
->>>>>>> skeleton
 //import Router from ReactRouter.Route;
 //import Switch from ReactRouter.Switch;
 
@@ -112,7 +108,6 @@ class App extends Component {
   render() { 
     return (
       <section>
-      <div>
         <div>
           <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
           {/* greet user if logged in: */}
@@ -144,21 +139,10 @@ class App extends Component {
 						<Route path="/messaging" render={() => <Messaging username={this.state.username} />} />
 					)}
 				</div>
-				<div className="container">
-					
-				</div>
-			</div>
-		);
-	}
-
-              render={() => (
-                <Profile
-                  username={this.state.username}
-                  // id={this.state.id}
-                />
-              )}
-            />
-          )}
+				<div>
+					<Profile username={this.state.username}
+					// id={this.state.id} />)}
+					/>
           {this.state.loggedIn && (
             <Route path="/topusers" component={Ranking} />
           )}
@@ -169,6 +153,7 @@ class App extends Component {
             />
           )}
         </div>
+				<div>
         {/* <Wrapper> */}
         <Header />
         <NewEntry />
@@ -177,8 +162,8 @@ class App extends Component {
         {/* </Wrapper> */}
       </div>
       </section>
-    );
-  }
+		);
+	};
 };
 
 export default App;
