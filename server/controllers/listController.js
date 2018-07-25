@@ -1,4 +1,4 @@
-const db = require('../database/models');
+const Listing = require('../database/models/Listing');
 
 module.exports = {
 	findAll: function(req, res) {
@@ -10,10 +10,7 @@ module.exports = {
 	},
 	create: function(req, res) {
         console.log('hit controller');
-        console.log(req);
-        console.log('spacerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr');
-        console.log(res);
-	    db.Listing
+	    Listing
 	      .create(req.body)
 	      .then(dbModel => res.json(dbModel))
 	      .catch(err => res.status(422).json(err));
