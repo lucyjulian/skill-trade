@@ -34,7 +34,7 @@ class Listing extends Component {
 				description: this.state.description,
 				duration: this.state.duration,
 				datesAvailable: this.state.datesAvailable,
-				tags: this.state.tags
+				hashtags: this.state.tags
 			})
 				.then(res => console.log('success'))
 				.catch((err) => console.log("err from saveListing", err));

@@ -9,7 +9,9 @@ module.exports = {
                 lastName: req.lastName,
                 email: req.email,
                 imageLink: req.imageLink,
-                birthdate: req.birthdate
+                birthdate: req.birthdate,
+                location: req.location,
+                skills: req.skills
                 }
             }
         ).then(function(userProfile) {

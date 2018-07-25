@@ -11,11 +11,11 @@ import Navbar from './components/Navbar';
 // import LoginForm from './components/login-form';
 // import Navbar from './components/Navbar';
 import Home from './components/pages/home';
-import Header from './components/Header';
-import Wrapper from './components/Wrapper';
-import NewEntry from './components/NewEntry';
-import SingleMess from './components/SingleMess';
-import ProfileForm from './components/ProfileForm';
+// import Header from './components/Header';
+// import Wrapper from './components/Wrapper';
+// import NewEntry from './components/NewEntry';
+// import SingleMess from './components/SingleMess';
+// import ProfileForm from './components/ProfileForm';
 import Browse from './components/pages/browse';
 import Profile from './components/pages/profile';
 import Ranking from './components/pages/topusers';
@@ -30,7 +30,8 @@ class App extends Component {
 		super();
 		this.state = {
 			loggedIn: false,
-			username: null
+      username: null,
+      userID: null
 		};
 
 		this.getUser = this.getUser.bind(this);
@@ -55,7 +56,8 @@ class App extends Component {
 
 				this.setState({
 					loggedIn: true,
-					username: response.data.user.username
+          username: response.data.username,
+          userID: response.data.userID
 				});
 			} else {
 				console.log('Get user: no user');
@@ -99,7 +101,7 @@ class App extends Component {
           <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
           {/* greet user if logged in: */}
           {this.state.loggedIn && (
-            <p>WELCOME, {this.state.username.toUpperCase()} TO THE HOMEPAGE </p>
+            <p>WELCOME, {this.state.username.toUpperCase()}   id = {this.state.userID} TO THE HOMEPAGE </p>
           )}
           {/* Routes to different components */}
           {!this.state.loggedIn && <Route exact path="/" component={Home} />}
@@ -124,7 +126,7 @@ class App extends Component {
               render={() => (
                 <Profile
                   username={this.state.username}
-                  // id={this.state.id}
+                  id={this.state.userID}
                 />
               )}
             />
@@ -139,12 +141,7 @@ class App extends Component {
             />
           )}
         </div>
-        <Wrapper>
-        <Header />
-        <NewEntry />
-        <ProfileForm />
-        <SingleMess />
-        </Wrapper>
+        
       </div>
       </section>
     );

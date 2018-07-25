@@ -33,6 +33,14 @@ const userSchema = new Schema({
 		type: Date,
 		required: false
 	},
+	location: {
+		type: String,
+		required: false
+	},
+	skills: {
+		type: String,
+		required: false
+	},
 	karmaChips: {
 		type: Number,
 		required: false
