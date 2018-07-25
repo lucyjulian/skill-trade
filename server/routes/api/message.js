@@ -4,6 +4,8 @@ const router = express.Router()
 // const passport = require('../../passport')
 const userController = require("./../../controllers/userController");
 
-router.route("/:id").get(userController.getMesssageBody);
-
+router.route("/:id").get(
+    // console.log("message.js!!")
+    userController.getMessageBody
+)
 module.exports = router
