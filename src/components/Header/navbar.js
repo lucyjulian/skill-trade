@@ -70,6 +70,9 @@ class Navbar extends Component {
                 <Link to="/browse" className="btn btn-link text-secondary">
                   <span id="navText" className="text-secondary">browse</span>
                 </Link>
+                <Link to="/addListing" className="btn btn-link">
+                  <span id="navText" className="text-secondary">add listing</span>
+                </Link>
                 <Link to="/topcont" className="btn btn-link text-secondary">
                   <span id="navText" className="text-secondary">top contributors</span>
                 </Link>
