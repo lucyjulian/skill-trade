@@ -53,6 +53,5 @@ module.exports = {
     //     function(err, model) {
     //         console.log(err);
     //     }
-
 }
 
