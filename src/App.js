@@ -4,7 +4,12 @@ import { Route } from 'react-router-dom';
 // components
 import Signup from './components/login/sign-up';
 import LoginForm from './components/login/login-form';
-import Navbar from './components/navbar';
+
+import Navbar from './components/Navbar';
+
+// import Signup from './components/sign-up';
+// import LoginForm from './components/login-form';
+// import Navbar from './components/Navbar';
 import Home from './components/pages/home';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
@@ -88,6 +93,7 @@ class App extends Component {
 // }
   render() { 
     return (
+      <section>
       <div>
         <div>
           <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
@@ -140,6 +146,7 @@ class App extends Component {
         <SingleMess />
         </Wrapper>
       </div>
+      </section>
     );
   }
 };
