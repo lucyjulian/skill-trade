@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -46,6 +46,21 @@ p {
   margin: 0 auto;
 }
 
+.list-container {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+.listing-text {
+width: 600px;
+
+}
+
+.desc-box {
+  max-height: 250px;
+}
 
 .pages {
   display: flex;
@@ -75,4 +90,4 @@ li {
 .userRanking {
   display: flex;
   justify-content: center;
-}
+} */
