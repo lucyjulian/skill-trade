@@ -11,7 +11,7 @@ export default {
       return axios.post("/user/send", receiverData)
   },
   getMessageBody: function(id) {
-      console.log("here API body");
+      console.log("here API body" + id);
       return axios.get("/message/" + id);
   }
 };
