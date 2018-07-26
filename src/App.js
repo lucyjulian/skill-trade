@@ -31,7 +31,7 @@ class App extends Component {
 		this.state = {
 			loggedIn: false,
       username: null,
-      userID: null
+      userID: "hello"
 		};
 
 		this.getUser = this.getUser.bind(this);
@@ -63,7 +63,8 @@ class App extends Component {
 				console.log('Get user: no user');
 				this.setState({
 					loggedIn: false,
-					username: null
+          username: null,
+          userID: "hello"
 				});
 			}
 		});

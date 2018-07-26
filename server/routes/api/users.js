@@ -46,6 +46,7 @@ router.post(
             username: req.user.username,
             id: req.user._id
         };
+        console.log("user info object: " + userInfo);
                 // var userId = {id: req.user.id}
         res.send(userInfo); //.send(userId);
     }

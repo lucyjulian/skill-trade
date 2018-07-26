@@ -1,7 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
-const listingController = require('../database/controllers/listingController');
+const listingController = require('../../database/controllers/listingController');
 
 
 //Route to /listings/
