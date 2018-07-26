@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import API from "./../utils/API";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input  } from "reactstrap";
 import { MessageListItem, MessageList } from "./../Message";
+import { Container, Row, Col } from 'reactstrap';
+import Wrapper from "../Wrapper";
 
 class Messaging extends Component {
   arr = [];
@@ -98,7 +100,9 @@ class Messaging extends Component {
 
   render() {
     return (
-      <div>
+      <section>
+        <Wrapper>
+        <Container>
         <div>
           <h1>Send Message</h1>
           <Form>
@@ -221,7 +225,9 @@ class Messaging extends Component {
           <h1>Inbox</h1>
           {/* <p>{this.state.user}</p> */}
         </div>
-      </div>
+        </Container>
+        </Wrapper>
+      </section>
     );
   }
 }
