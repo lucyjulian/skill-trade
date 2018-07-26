@@ -11,7 +11,15 @@ export default {
       return axios.post("/user/send", receiverData)
   },
   getMessageBody: function(id) {
-      console.log("here API body");
+      console.log("here API body" + id);
       return axios.get("/message/" + id);
-  }
+  },
+
+  
+	///////////////////////////////////////////////////////////////////
+	// Listing
+	saveListing: function(listingData) {
+		console.log('hit listing api', listingData);
+		return axios.post('/listing/', listingData);
+	}
 };

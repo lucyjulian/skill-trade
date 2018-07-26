@@ -1,27 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import "../../App.css";
+//import PropTypes from 'prop-types';
+import "../../App.css";
 
-// function SelectPage(props) {
-// 	var pages = [ 'All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python' ];
-// 	return (
-// 		<ul className="pages">
-// 			{pages.map(function(page) {
-// 				return (
-// 					<li
-// 						style={page === props.selectedPage ? { color: '#d0021b' } : null}
-// 						onClick={props.onSelect.bind(null, page)}
-// 						key={page}
-// 					>
-// 						{page}
-// 					</li>
-// 				);
-// 			})}
-// 		</ul>
-// 	);
-// }
 
-class Header extends React.Component {
+
+
+
+class PageSelect extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -62,4 +49,5 @@ class Header extends React.Component {
 }
 
 
-export default Header;
+
+export default PageSelect;
