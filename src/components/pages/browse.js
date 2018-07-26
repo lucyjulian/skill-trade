@@ -1,16 +1,22 @@
 import React, { Component } from "react";
-import Header from '../Header/header';
+import { Container, Row, Col } from 'reactstrap';
+import PageSelect from '../PageSelect';
+import Navbar from '../Navbar';
+import Wrapper from "../Wrapper";
 
 
 class Browse extends Component {
 
   render() {
     return (
-      <section>  
-      <div class = "container text-center mx-auto">
-        <p>Browse Lessons</p>
-        <Header />
-      </div>
+      <section>
+        <Wrapper>
+          <Container>
+            <p>Browse Lessons</p>
+            <PageSelect/>
+            <Navbar/>
+          </Container>
+        </Wrapper>  
       </section>
     );
   }
