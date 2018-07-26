@@ -1,5 +1,5 @@
 const db = require("../database/models");
-
+const Message = require("./../database/models/Message")
 module.exports = {
     findMessages: function(req, res) {
         db.User.findById({ _id: req.params.id })
@@ -38,9 +38,10 @@ module.exports = {
     },
     getMessageBody: function(req, res) {
         console.log("HERE MESSAGE BODY CONTROLLER" + req.params.id)
-        return db.Message.findOne({ _id: req.params.id} )
+        Message.find({ _id: req.params.id} )
         .then(function(dbMessage) {
             console.log(dbMessage + "??????");
+            res.json(dbMessage)
         })
         .catch(function(err){
             res.json(err)
