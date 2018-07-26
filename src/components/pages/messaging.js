@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Wrapper from "../Wrapper";
 
 class Messaging extends Component {
+  arr = [];
   state = {
     messages: [],
     messageBody: [],
@@ -15,6 +16,7 @@ class Messaging extends Component {
   componentDidMount() {
     //   console.log(this.props.username)
     this.getUser(this.props.username);
+
   }
   getUser = username => {
     API.getUser(username).then(res => {
@@ -22,26 +24,46 @@ class Messaging extends Component {
       this.setState({
         messages: res.data.message
       });
-      console.log(this.state.messages);
-      this.getMessageBody(this.state.messages[0])
+      this.state.messages.map(id => {
+        this.getMessageBody(id)
+      })
+      console.log(this.state.messageBody);
+      // this.getMessageBody(this.state.messages[0])
     });
   };
   getMessageBody = id => {
     console.log(id)
     API.getMessageBody(id).then(res => {
-      console.log(res);
-      this.setState(prevState => ({
-        messageBody: [...prevState.messageBody, res]
-      }))
-      console.log(this.state)
+      // this.setState(state => ({
+      //   messageBody: [...state.messageBody, res]
+      // }))
+      this.state.messageBody.push(res)
+      // this.setState(
+      //   this.state
+      // )
+      // this.state
+      console.log(res.data[0].body+"@2222222");
+      // console.log(this.state.messageBody[0].data[0].body + "@#####33");
+      return res.data[0].body; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     })
   }
   
-  // sendMessage = receiver => {
-  //   API.sendMessage(receiver).then(res => {
-  //     console.log(res);
-  //   })
-  // }
+
+  displayMessages = () => {
+
+    // event.preventDefault();
+  this.state.messageBody.map(message => {
+      return (
+        <MessageListItem id="center" >
+          <strong>
+            <h1>{console.log(message.data[0].body)}</h1>
+          </strong>
+        </MessageListItem>
+        
+      );
+    })
+
+  }
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.receiver && this.state.body) {
@@ -59,6 +81,12 @@ class Messaging extends Component {
       [name]: value
     });
   };
+  
+  provideMessages = () => {
+    this.state.messageBody.map(message => {
+      console.log(message.body)
+    })
+  }
   //   // When this component mounts, grab the book with the _id of this.props.match.params.id
   //   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   //   componentDidMount() {
@@ -146,18 +174,27 @@ class Messaging extends Component {
                 Send Message
               </Button>
             <MessageList>
-              {this.state.messages.map(message => {
+            <button onClick={this.displayMessages()}>View Messages</button>
+            {/* {this.state.messageBody.map(message => {
                 return (
-                  <MessageListItem id="center" key={message._id}>
+                  <MessageListItem id="center" >
                     <strong>
-                      <h1>{`Message ID: ${message}`}</h1>
-                      {/* <Button onClick={this.getMessageBody(message)}/> */}
-                      {/* <h3>{new Date(article.pub_date).toLocaleDateString('en-US', options)}</h3> */}
+                      <h1>{console.log(message.data[0].body)}</h1>
                     </strong>
                   </MessageListItem>
                   
-                );
-              })}
+                ); */}
+              {/* })} */}
+
+                  {/* <MessageListItem id="center" key={message.id}> 
+                  <strong>
+                    <h1>{message.body}</h1>
+                    <h1>{message.data.body}</h1>
+                  </strong>
+                  </MessageListItem>
+                                )
+              })} */}
+              
             </MessageList>
             {/* <FormGroup>
               <Label for="exampleEmail">To (username):</Label>
@@ -182,6 +219,7 @@ class Messaging extends Component {
 
 
           </Form>
+
         </div>
         <div>
           <h1>Inbox</h1>
